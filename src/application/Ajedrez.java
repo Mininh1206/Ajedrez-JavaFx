@@ -1,5 +1,7 @@
 package application;
 	
+import static helpers.Constants.PXBLOQUE;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -64,7 +66,7 @@ public class Ajedrez extends Application {
 			stage = principal;
 			stage.getIcons().add(new Image("img/ajedrez.png"));
 			
-			//Creo los botones y los añado a su Pane para crear el menu
+			//Creo los botones y los aï¿½ado a su Pane para crear el menu
 			Button jugar = new Button("Jugar");
 			Button continuar = new Button("Continuar");
 			Button salir = new Button("Salir");
@@ -86,7 +88,7 @@ public class Ajedrez extends Application {
 			});
 			
 			
-			Text creditos = new Text("Creado por Daniel Marchena Jiménez");
+			Text creditos = new Text("Creado por Daniel Marchena Jimï¿½nez");
 			creditos.setFont(new Font(10));
 			creditos.setFill(Color.WHITESMOKE);
 			
@@ -122,7 +124,7 @@ public class Ajedrez extends Application {
 			});
 			
 		} catch(Exception e) {
-			System.err.println("Ha ocurrido un error, por favor reinicia la aplicación");
+			System.err.println("Ha ocurrido un error, por favor reinicia la aplicaciï¿½n");
 		}
 	}
 	
@@ -150,7 +152,7 @@ public class Ajedrez extends Application {
 		
 		tablero.getChildren().addAll(cuadriculas);
 		
-		//Añado las piezas negras al tablero
+		//Aï¿½ado las piezas negras al tablero
 		
 		ImageView torren1 = new ImageView(torren);
 		torren1.setId("torre");
@@ -189,6 +191,8 @@ public class Ajedrez extends Application {
 		
 		for (int pos = 0;pos<piezasn.size();pos++) {
 			ImageView pieza = piezasn.get(pos);
+			pieza.setX(pos%8*PXBLOQUE);
+			pieza.setY(pos/8*PXBLOQUE);
 			pieza.setOnMouseClicked(e->{
 				piezaSelec = pieza;
 				comprobarPieza(pieza);
@@ -197,7 +201,7 @@ public class Ajedrez extends Application {
 		
 		tablero.getChildren().addAll(piezasn);
 		
-		//Añado las piezas blancas al tablero
+		//Aï¿½ado las piezas blancas al tablero
 		
 		ImageView torreb1 = new ImageView(torreb.getUrl());
 		torreb1.setId("torre");
