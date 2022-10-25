@@ -1,13 +1,10 @@
 package application;
 	
-import static helpers.Constants.PXBLOQUE;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -25,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class Ajedrez extends Application {
 	

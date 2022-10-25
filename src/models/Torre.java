@@ -4,6 +4,7 @@ import static helpers.Constants.*;
 
 import java.util.ArrayList;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Torre extends Pieza {
@@ -18,8 +19,10 @@ public class Torre extends Pieza {
 	}
 	
 	@Override
-	public void ComprobarMovimiento(Tablero tablero, ArrayList<Rectangle> movimientos) {
-		super.ComprobarMovimiento(tablero, movimientos);
+	public void ComprobarMovimiento(Tablero tablero) {
+		super.ComprobarMovimiento(tablero);
+		
+		ArrayList<Rectangle> movimientos = new ArrayList<>();
 		
 		Rectangle mov;
 		
@@ -82,5 +85,16 @@ public class Torre extends Pieza {
 				break;
 			}
 		}
+		
+		movimientos.forEach(e->{
+			if (e.getId()==null)
+				e.setId("mov");
+			e.setFill(Color.rgb(155, 200, 255, .6));
+			e.setOnMouseClicked(m->{
+				MoverPieza(tablero, e);
+			});
+		});
+		
+		tablero.getChildren().addAll(movimientos);
 	}
 }

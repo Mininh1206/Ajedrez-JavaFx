@@ -14,14 +14,12 @@ public class Tablero extends Pane {
 	
 	private Pieza piezaSelec;
 	
-	private ArrayList<Rectangle> movimientos;
+	private int turno = 0;
 	
 	public Tablero()
 	{
 		piezasBlancas = new ArrayList<>();
 		piezasNegras = new ArrayList<>();
-		
-		movimientos = new ArrayList<>();
 		
 		GenerarTablero();
 		GenerarPiezas();
@@ -29,7 +27,7 @@ public class Tablero extends Pane {
 
 	private void GenerarPiezas() {
 		piezasNegras.addAll(Arrays.asList(new Torre(1),
-				new Torre(1)));
+											new Torre(1)));
 
 		for (int pos = 0;pos<piezasNegras.size();pos++)
 		{
@@ -40,7 +38,13 @@ public class Tablero extends Pane {
 			
 			pieza.setOnMouseClicked(e->{
 				piezaSelec = pieza;
-				pieza.ComprobarMovimiento(this, movimientos);
+				
+				QuitarMovimientos();
+				
+				if (turno == piezaSelec.color)
+				{
+					pieza.ComprobarMovimiento(this);
+				}
 			});
 		}
 		
@@ -57,7 +61,13 @@ public class Tablero extends Pane {
 			
 			pieza.setOnMouseClicked(e->{
 				piezaSelec = pieza;
-				pieza.ComprobarMovimiento(this, movimientos);
+				
+				QuitarMovimientos();
+				
+				if (turno == pieza.color)
+				{
+					pieza.ComprobarMovimiento(this);
+				}
 			});
 		}
 
@@ -79,7 +89,7 @@ public class Tablero extends Pane {
 					nc.setFill(Color.rgb(160, 160, 160));
 				}
 				nc.setId("tablero");
-				nc.setOnMouseClicked(e->QuitarMov());
+				nc.setOnMouseClicked(e->QuitarMovimientos());
 				cuadriculas.add(nc);
 			}
 		}
@@ -87,7 +97,7 @@ public class Tablero extends Pane {
 		this.getChildren().addAll(cuadriculas);
 	}
 	
-	private void QuitarMov() {
+	public void QuitarMovimientos() {
 		for (int pos = 0;pos<this.getChildren().size();pos++) {
 			if (this.getChildren().get(pos).getId()!=null)
 				if (this.getChildren().get(pos).getId().equalsIgnoreCase("mov") || this.getChildren().get(pos).getId().equalsIgnoreCase("com")) {

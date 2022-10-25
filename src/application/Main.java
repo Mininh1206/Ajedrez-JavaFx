@@ -21,9 +21,9 @@ import models.Tablero;
 import static helpers.Constants.*;
 
 public class Main extends Application {
-	private static Scene scene;
-	private static Stage stage;
-	private static Tablero tablero;	
+	private Scene scene;
+	private Stage stage;
+	private Tablero tablero;
 	
 	public static void main(String[] args) {
 		launch(args);
