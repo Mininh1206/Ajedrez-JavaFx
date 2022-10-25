@@ -24,6 +24,13 @@ public class Tablero extends Pane {
 		GenerarTablero();
 		GenerarPiezas();
 	}
+	
+	public void CambiarTurno() {
+		if (turno == 0)
+			turno = 1;
+		else
+			turno = 0;
+	}
 
 	private void GenerarPiezas() {
 		piezasNegras.addAll(Arrays.asList(new Torre(1),

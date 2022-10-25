@@ -1,6 +1,7 @@
 package models;
 
-import static helpers.Constants.*;
+import static helpers.Constants.ALFILB;
+import static helpers.Constants.ALFILN;
 
 public class Alfil extends Pieza {
 	public Alfil(int color)
@@ -11,5 +12,10 @@ public class Alfil extends Pieza {
 			this.setImage(ALFILB);
 		else
 			this.setImage(ALFILN);
+	}
+	
+	@Override
+	public void ComprobarMovimiento(Tablero tablero) {
+		RepresentarMovimientos(tablero, GetMovimientosDiagonales(tablero));
 	}
 }

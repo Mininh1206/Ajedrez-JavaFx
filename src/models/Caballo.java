@@ -22,8 +22,6 @@ public class Caballo extends Pieza{
 	
 	@Override
 	public void ComprobarMovimiento(Tablero tablero) {
-		super.ComprobarMovimiento(tablero);
-		
 		ArrayList<Rectangle> movimientos = new ArrayList<>();
 		
 		Rectangle mov;
