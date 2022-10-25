@@ -2,7 +2,10 @@ package models;
 
 import static helpers.Constants.PXBLOQUE;
 
+import java.util.ArrayList;
+
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Pieza extends ImageView {
@@ -82,5 +85,18 @@ public class Pieza extends ImageView {
 	
 	public int GetMovimientos() {
 		return numeroMovimientos;
+	}
+
+	public void RepresentarMovimientos(Tablero tablero, ArrayList<Rectangle> movimientos) {
+		movimientos.forEach(e->{
+			if (e.getId()==null)
+				e.setId("mov");
+			e.setFill(Color.rgb(155, 200, 255, .6));
+			e.setOnMouseClicked(m->{
+				MoverPieza(tablero, e);
+			});
+		});
+		
+		tablero.getChildren().addAll(movimientos);
 	}
 }

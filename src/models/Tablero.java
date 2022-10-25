@@ -27,7 +27,18 @@ public class Tablero extends Pane {
 
 	private void GenerarPiezas() {
 		piezasNegras.addAll(Arrays.asList(new Torre(1),
+											new Caballo(1),
+											new Alfil(1),
+											new Reina(1),
+											new Rey(1),
+											new Alfil(1),
+											new Caballo(1),
 											new Torre(1)));
+		
+		for (int p = 0; p < 8; p++)
+		{
+			piezasNegras.add(new Peon(1));
+		}
 
 		for (int pos = 0;pos<piezasNegras.size();pos++)
 		{
@@ -51,7 +62,18 @@ public class Tablero extends Pane {
 		this.getChildren().addAll(piezasNegras);
 		
 		piezasBlancas.addAll(Arrays.asList(new Torre(0),
+											new Caballo(0),
+											new Alfil(0),
+											new Reina(0),
+											new Rey(0),
+											new Alfil(0),
+											new Caballo(0),
 											new Torre(0)));
+		
+		for (int p = 0; p < 8; p++)
+		{
+			piezasBlancas.add(new Peon(0));
+		}
 		
 		for (int pos = 0;pos<piezasBlancas.size();pos++) {
 			Pieza pieza = piezasBlancas.get(pos);

@@ -1,5 +1,8 @@
 package application;
 
+import static helpers.Constants.ALTO;
+import static helpers.Constants.ANCHO;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,8 +20,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Tablero;
-
-import static helpers.Constants.*;
 
 public class Main extends Application {
 	private Scene scene;

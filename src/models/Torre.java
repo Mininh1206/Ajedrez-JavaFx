@@ -1,10 +1,12 @@
 package models;
 
-import static helpers.Constants.*;
+import static helpers.Constants.BLOQUES;
+import static helpers.Constants.PXBLOQUE;
+import static helpers.Constants.TORREB;
+import static helpers.Constants.TORREN;
 
 import java.util.ArrayList;
 
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Torre extends Pieza {
@@ -86,15 +88,6 @@ public class Torre extends Pieza {
 			}
 		}
 		
-		movimientos.forEach(e->{
-			if (e.getId()==null)
-				e.setId("mov");
-			e.setFill(Color.rgb(155, 200, 255, .6));
-			e.setOnMouseClicked(m->{
-				MoverPieza(tablero, e);
-			});
-		});
-		
-		tablero.getChildren().addAll(movimientos);
+		RepresentarMovimientos(tablero, movimientos);
 	}
 }
