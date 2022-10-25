@@ -1,21 +1,12 @@
 package models;
 
-import javafx.geometry.Pos;
+import static helpers.Constants.PXBLOQUE;
+
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-
-import static helpers.Constants.*;
-
-import java.util.ArrayList;
 
 public class Pieza extends ImageView {
-	private int movimientos = 0;
+	private int numeroMovimientos = 0;
 	protected int color;
 	
 	public Pieza()
@@ -27,13 +18,20 @@ public class Pieza extends ImageView {
 	{
 	}
 	
-	public boolean ComprobarComerPieza(Tablero tablero, Pieza pieza, Rectangle movimiento) {
+	public boolean ComprobarComerPieza(Tablero tablero, Rectangle movimiento) {
 		for (int pos = 0; pos<tablero.getChildren().size();pos++) {
-			if (tablero.getChildren().get(pos).getClass().isInstance(new Pieza())) {
+			try {
 				Pieza temp = (Pieza)tablero.getChildren().get(pos);
+				
 				if (temp.getX()/PXBLOQUE==movimiento.getX()/PXBLOQUE && temp.getY()/PXBLOQUE==movimiento.getY()/PXBLOQUE)
-					if (pieza.color!=this.color)
+				{
+					if (this.color!=temp.color)
+					{
 						return true;
+					}
+				}
+			}
+			catch (Exception e) {
 			}
 		}
 		
@@ -41,11 +39,16 @@ public class Pieza extends ImageView {
 	}
 	
 	public boolean ComprobarObstruido(Tablero tablero, Rectangle movimiento) {
-		for (int pos = 0;pos<tablero.getChildren().size();pos++) {
-			if (tablero.getChildren().get(pos).getClass().isInstance(new Pieza())) {
-				Pieza pieza = (Pieza)tablero.getChildren().get(pos);
-				if (pieza.getX()/PXBLOQUE==movimiento.getX()/PXBLOQUE && pieza.getY()/PXBLOQUE==movimiento.getY()/PXBLOQUE)
+		for (int pos = 0; pos<tablero.getChildren().size();pos++) {
+			try {
+				Pieza temp = (Pieza)tablero.getChildren().get(pos);
+				
+				if (temp.getX()/PXBLOQUE==movimiento.getX()/PXBLOQUE && temp.getY()/PXBLOQUE==movimiento.getY()/PXBLOQUE)
+				{
 					return true;
+				}
+			}
+			catch (Exception e) {
 			}
 		}
 		
@@ -53,17 +56,31 @@ public class Pieza extends ImageView {
 	}
 	
 	public void MoverPieza(Tablero tablero, Rectangle movimiento) {
+		if (movimiento.getId().equalsIgnoreCase("com"))
+		{
+			for (int pos = 0; pos<tablero.getChildren().size();pos++) {
+				try {
+					Pieza temp = (Pieza)tablero.getChildren().get(pos);
+					
+					if (temp.getX()/PXBLOQUE==movimiento.getX()/PXBLOQUE && temp.getY()/PXBLOQUE==movimiento.getY()/PXBLOQUE)
+					{
+						tablero.getChildren().remove(pos);
+					}
+				}
+				catch (Exception e) {
+				}
+			}
+		}
+
 		this.setX(movimiento.getX());
 		this.setY(movimiento.getY());
 		
-		System.out.println(movimiento.getId());
-		
 		tablero.QuitarMovimientos();
 		
-		movimientos++;
+		numeroMovimientos++;
 	}
 	
 	public int GetMovimientos() {
-		return movimientos;
+		return numeroMovimientos;
 	}
 }

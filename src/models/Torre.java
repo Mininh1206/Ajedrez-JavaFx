@@ -32,7 +32,7 @@ public class Torre extends Pieza {
 			
 			if (!ComprobarObstruido(tablero, mov)) {
 				movimientos.add(mov);
-			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, this, mov)) {
+			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
 				mov.setId("com");
 				movimientos.add(mov);
 				break;
@@ -47,7 +47,7 @@ public class Torre extends Pieza {
 			
 			if (!ComprobarObstruido(tablero, mov)) {
 				movimientos.add(mov);
-			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, this, mov)) {
+			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
 				mov.setId("com");
 				movimientos.add(mov);
 				break;
@@ -62,7 +62,7 @@ public class Torre extends Pieza {
 			
 			if (!ComprobarObstruido(tablero, mov)) {
 				movimientos.add(mov);
-			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, this, mov)) {
+			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
 				mov.setId("com");
 				movimientos.add(mov);
 				break;
@@ -77,7 +77,7 @@ public class Torre extends Pieza {
 			
 			if (!ComprobarObstruido(tablero, mov)) {
 				movimientos.add(mov);
-			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, this, mov)) {
+			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
 				mov.setId("com");
 				movimientos.add(mov);
 				break;
