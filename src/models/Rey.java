@@ -4,6 +4,7 @@ import static helpers.Constants.*;
 
 import java.util.ArrayList;
 
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
 public class Rey extends Pieza {
@@ -80,55 +81,68 @@ public class Rey extends Pieza {
 		
 		mov = new Rectangle(this.getX(), this.getY()+PXBLOQUE, PXBLOQUE, PXBLOQUE);
 		
-		if (!ComprobarObstruido(tablero, mov)) {
-			movimientos.add(mov);
-		} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
-			mov.setId("com");
-			movimientos.add(mov);
+		if (!ComprobarJaqueMovimiento(tablero, mov)) {
+			if (!ComprobarObstruido(tablero, mov)) {
+				movimientos.add(mov);
+			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
+				mov.setId("com");
+				movimientos.add(mov);
+			}
 		}
 	
 		mov = new Rectangle(this.getX(), this.getY()-PXBLOQUE, PXBLOQUE, PXBLOQUE);
 		
-		if (!ComprobarObstruido(tablero, mov)) {
-			movimientos.add(mov);
-		} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
-			mov.setId("com");
-			movimientos.add(mov);
+		if (!ComprobarJaqueMovimiento(tablero, mov)) {
+			if (!ComprobarObstruido(tablero, mov)) {
+				movimientos.add(mov);
+			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
+				mov.setId("com");
+				movimientos.add(mov);
+			}
 		}
 	
 		mov = new Rectangle(this.getX()+PXBLOQUE, this.getY(), PXBLOQUE, PXBLOQUE);
 		
-		if (!ComprobarObstruido(tablero, mov)) {
-			movimientos.add(mov);
-		} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
-			mov.setId("com");
-			movimientos.add(mov);
+		if (!ComprobarJaqueMovimiento(tablero, mov)) {
+			if (!ComprobarObstruido(tablero, mov)) {
+				movimientos.add(mov);
+			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
+				mov.setId("com");
+				movimientos.add(mov);
+			}
 		}
 	
 		mov = new Rectangle(this.getX()-PXBLOQUE, this.getY(), PXBLOQUE, PXBLOQUE);
 		
-		if (!ComprobarObstruido(tablero, mov)) {
-			movimientos.add(mov);
-		} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
-			mov.setId("com");
-			movimientos.add(mov);
+		if (!ComprobarJaqueMovimiento(tablero, mov)) {
+			if (!ComprobarObstruido(tablero, mov)) {
+				movimientos.add(mov);
+			} else if (ComprobarObstruido(tablero, mov) && ComprobarComerPieza(tablero, mov)) {
+				mov.setId("com");
+				movimientos.add(mov);
+			}
 		}
 		
 		if (this.GetMovimientos()== 0)
 		{
 			if (this.color == 0)
 			{
-				//TODO añadir enroque
+				//TODO Añadir enroque
 			}
 		}
 		
 		return movimientos;
 	}
 	
-	@Override
-	public void MoverPieza(Tablero tablero, Rectangle movimiento) {
-		super.MoverPieza(tablero, movimiento);
+	private boolean ComprobarJaqueMovimiento(Tablero tablero, Rectangle mov) {
+		//TODO Comprobar jaque en movimiento
 		
-		//TODO comprobar jaque
+		return false;
+	}
+	
+	private boolean ComprobarJaque(Tablero tablero) {
+		//TODO Comprobar jaque
+		
+		return false;
 	}
 }

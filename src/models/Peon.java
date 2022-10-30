@@ -81,6 +81,6 @@ public class Peon extends Pieza {
 	public void MoverPieza(Tablero tablero, Rectangle movimiento) {
 		super.MoverPieza(tablero, movimiento);
 		
-		//TODO vista de cambio de corona
+		//TODO Vista de cambio de corona
 	}
 }
