@@ -30,7 +30,7 @@ public class Peon extends Pieza {
 			if (!ComprobarObstruido(tablero, mov))
 				movimientos.add(mov);
 			
-			if (this.GetMovimientos()==0 && !ComprobarObstruido(tablero, mov)) {
+			if (this.GetNumeroMovimientos()==0 && !ComprobarObstruido(tablero, mov)) {
 				mov = new Rectangle(this.getX(), this.getY()+PXBLOQUE*2, PXBLOQUE, PXBLOQUE);
 				
 				if (!ComprobarObstruido(tablero, mov))
@@ -57,7 +57,7 @@ public class Peon extends Pieza {
 			
 			if (!ComprobarObstruido(tablero, mov))
 				movimientos.add(mov);
-			if (this.GetMovimientos()==0 && !ComprobarObstruido(tablero, mov)) {
+			if (this.GetNumeroMovimientos()==0 && !ComprobarObstruido(tablero, mov)) {
 				mov = new Rectangle(this.getX(), this.getY()-PXBLOQUE*2, PXBLOQUE, PXBLOQUE);
 				if (!ComprobarObstruido(tablero, mov))
 					movimientos.add(mov);

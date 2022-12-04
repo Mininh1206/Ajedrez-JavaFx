@@ -123,7 +123,7 @@ public class Rey extends Pieza {
 			}
 		}
 		
-		if (this.GetMovimientos()== 0)
+		if (this.GetNumeroMovimientos()== 0)
 		{
 			if (this.color == 0)
 			{

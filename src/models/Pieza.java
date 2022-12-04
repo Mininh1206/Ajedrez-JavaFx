@@ -221,7 +221,7 @@ public class Pieza extends ImageView {
 		return movimientos;
 	}
 	
-	public int GetMovimientos() {
+	public int GetNumeroMovimientos() {
 		return numeroMovimientos;
 	}
 
